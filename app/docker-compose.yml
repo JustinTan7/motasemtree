@@ -37,7 +37,11 @@ services:
   #     MYSQL_USER: data_user
   #     MYSQL_PASSWORD: data_password
 
-  # mongo_db:
-  #   image: mongo:latest
-  #   ports:
-  #     - "27017:27017"
+  #mongo_db:
+  #  image: mongo:latest
+  #  container_name: mongo_container
+  #  ports:
+  #    - "27017:27017"
+  #  environment:
+  #    MONGO_INITDB_ROOT_USERNAME: rootadmin
+  #    MONGO_INITDB_ROOT_PASSWORD: rootpassword
