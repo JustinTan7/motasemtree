@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  # enter_data:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.enterdata
-  #   ports:
-  #     - "5000:5000"
+  enter_data:
+    build:
+      context: .
+      dockerfile: Dockerfile.enterdata
+    ports:
+      - "5000:5000"
 
   # show_results:
   #   build:
