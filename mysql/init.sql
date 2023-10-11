@@ -4,8 +4,8 @@ USE students_data;
 
 CREATE TABLE IF NOT EXISTS students (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    student_name VARCHAR(255),
-    student_id INT,
-    course_code VARCHAR(255),
-    grade VARCHAR(2)
+    student_name VARCHAR(255) NOT NULL,
+    student_id VARCHAR(255) NOT NULL,
+    course_code VARCHAR(255) NOT NULL,
+    grade VARCHAR(2) NOT NULL
 );
