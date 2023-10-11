@@ -9,10 +9,9 @@ COPY . /app
 
 # Install Flask and any other needed packages
 RUN pip install Flask
-RUN pip install flask_mysqldb
 
 # Make port 5002 available to the world outside this container
 EXPOSE 5002
 
 # Run the Flask app when the container launches
-CMD ["python", "auth_service.py"]
+CMD ["python", "/app/auth_service/auth_service.py"]

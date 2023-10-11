@@ -14,4 +14,4 @@ RUN pip install Flask
 EXPOSE 5000
 
 # Run the Flask app when the container launches
-CMD ["python", "enter_data.py"]
+CMD ["python", "/app/enter_data/enter_data.py"]
