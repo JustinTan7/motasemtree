@@ -8,5 +8,6 @@ run:
 ```
 docker build -t your-image-name
 docker run -p 5002:5002 --name your-container-name your-image-name
-``
-However, the port is still 5000 when the app loads up in the container. I don't know how because in the `dockerfile`, `docker-compose.yml`, and `app.py` I HAVE SPECIFIED IT TO BE ON PORT 5002
+```
+However, the port is still 5000 when the app loads up in the container. 
+I don't know how because in the `dockerfile`, `docker-compose.yml`, and `app.py`, I HAVE SPECIFIED IT TO BE ON PORT 5002 >:[
