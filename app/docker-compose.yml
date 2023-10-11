@@ -1,16 +1,12 @@
 version: '3'
 
 services:
-<<<<<<< HEAD
-  input_grade:
-=======
-  enter_data:
->>>>>>> b0cfde0a5c2447420c3a07b5810d6ff02a6deb9c
-    build:
-      context: .
-      dockerfile: Dockerfile.enterdata
-    ports:
-      - "5000:5000"
+  # input_grade:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.enterdata
+  #   ports:
+  #     - "5000:5000"
 
   # show_results:
   #   build:
@@ -33,13 +29,13 @@ services:
   #   ports:
   #     - "5003:5003"
 
-  mysql_db:
-    image: mysql:latest
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: students_data
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+  # mysql_db:
+  #   image: mysql:latest
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_DATABASE: students_data
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: password
 
   #mongo_db:
   #  image: mongo:latest

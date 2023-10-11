@@ -14,4 +14,4 @@ RUN pip install Flask
 EXPOSE 5002
 
 # Run the Flask app when the container launches
-CMD ["python", "/app/auth_service/auth_service.py"]
+CMD ["flask", "run", "--host=0.0.0.0"]
