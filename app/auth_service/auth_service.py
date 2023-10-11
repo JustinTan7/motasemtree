@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, session
 
-
 app = Flask(__name__)
 # This line tells Flask where your static files are located
 app.config['STATIC_FOLDER'] = 'static'  

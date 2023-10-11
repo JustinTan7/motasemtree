@@ -1,7 +1,11 @@
 version: '3'
 
 services:
+<<<<<<< HEAD
   input_grade:
+=======
+  enter_data:
+>>>>>>> b0cfde0a5c2447420c3a07b5810d6ff02a6deb9c
     build:
       context: .
       dockerfile: Dockerfile.enterdata
@@ -37,7 +41,11 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
 
-  # mongo_db:
-  #   image: mongo:latest
-  #   ports:
-  #     - "27017:27017"
+  #mongo_db:
+  #  image: mongo:latest
+  #  container_name: mongo_container
+  #  ports:
+  #    - "27017:27017"
+  #  environment:
+  #    MONGO_INITDB_ROOT_USERNAME: rootadmin
+  #    MONGO_INITDB_ROOT_PASSWORD: rootpassword
