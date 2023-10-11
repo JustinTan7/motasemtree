@@ -14,4 +14,4 @@ RUN npm install
 EXPOSE 5001
 
 # Run the Node.js app when the container launches
-CMD ["node", "show_results.js"]
+CMD ["node", "/app/show_results/show_results.js"]

@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  # enter_data:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.enterdata
+  #   ports:
+  #     - "5000:5000"
+
+  # show_results:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.showresults
+  #   ports:
+  #     - "5001:5001"
+
+  auth_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.auth
+    ports:
+      - "5002:5002"
+
+  # analytics:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.analytics
+  #   ports:
+  #     - "5003:5003"
+
+  # mysql_db:
+  #   image: mysql:latest
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root_password
+  #     MYSQL_DATABASE: data_db
+  #     MYSQL_USER: data_user
+  #     MYSQL_PASSWORD: data_password
+
+  # mongo_db:
+  #   image: mongo:latest
+  #   ports:
+  #     - "27017:27017"

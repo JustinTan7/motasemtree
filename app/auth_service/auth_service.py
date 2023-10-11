@@ -1,19 +1,18 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect, session
 
 
 app = Flask(__name__)
 # This line tells Flask where your static files are located
 app.config['STATIC_FOLDER'] = 'static'  
+app.secret_key = 'your_secret_key'
 
 users = {
     "SigmaMale": "password",
     "BetaMale": "secret"
 }
 
-# http://localhost:5002/app/auth - the following will be our login page, which will use POST requests
 @app.route('/app/auth', methods=['GET','POST'])
-
-def login():
+def auth():
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
@@ -27,7 +26,8 @@ def login():
         if username in users:
             if users[username] == password:
                 response = {'message': 'Login successful!'}
-                return jsonify(response), 200
+                session['username'] = username
+                return redirect('/app/home')
             else:
                 response = {'message': 'Login failed.'}
                 return jsonify(response), 401
@@ -40,8 +40,12 @@ def login():
 
     return "This route is intended for POST requests only.", 400
 
+@app.route('/app/home', methods=['GET', 'POST'])
 def home():
-    pass
+    if 'username' in session:  # Check if 'username' is in the session
+        return render_template('dashboard.html', username=session['username'])
+    else:
+        return redirect('/app/home')  # Redirect to login if 'username' is not in the session
 
 
 if __name__ == '__main__':
