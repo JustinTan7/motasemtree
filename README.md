@@ -6,7 +6,7 @@ Going forward all the dockerfiles will be in their respective sub directories. W
 
 The 'login' directory will contian **ALL** the web app pages, and functionality for them. The `app.py` within 'login' will contain all the functions and routes to go between the web apps. Other services can probably go within their own sub directories.
 
-To build the images, ontainers, and network easily, run:
+To build the images, ontainers, and network easily, cd into app and run:
 
 ```
 docker compose up --build
