@@ -14,14 +14,14 @@ INSERT INTO students_grades (student_name, student_id, course_code, grade)
 VALUES
     ('Borat Sagdiyev', 'JD001', 'Mathematics', 85.00),
     ('Bilo Sagdiyev', 'JS002', 'Mathematics', 90.00),
-    ('Alice Johnson', 'AJ003', 'Biology', 92.00),
-    ('Bob Brown', 'BB004', 'Biology', 78.00),
-    ('Charlie White', 'CW005', 'Chemistry', 88.00),
-    ('Diana Black', 'DB006', 'Physics', 95.00),
-    ('Eve Green', 'EG007', 'Physics', 82.00),
-    ('Frank Gray', 'FG008', 'English', 89.00),
-    ('Grace Blue', 'GB009', 'English', 93.00),
-    ('Harry Red', 'HR010', 'History', 81.00);
+    ('Toji Fushiguro', 'AJ003', 'Advanced Heavenly Restriction II', 100),
+    ('Gojo Satoru', 'BB004', 'Adavnced Reversed Cursed Techniques', 100),
+    ('Lebron James', 'CW005', 'GOAT Behaviour', 95.00),
+    ('Chris Paul', 'DB006', 'Intro To Never Winning a Ring', 95.00),
+    ('Draymond Green', 'EG007', 'How To Get Flagrants 101', 82.00),
+    ('Makima', 'FG008', 'Expert Manipulation 400', 94.00),
+    ('Tanjiro Kamado', 'GB009', 'How To Power Scale Quickly ', 93.00),
+    ('Charles Barkley', 'HR010', 'San Antonio Women 101', 81.00);
 
 GRANT SELECT ON students_data.* TO 'user'@'%' WITH GRANT OPTION;
 
