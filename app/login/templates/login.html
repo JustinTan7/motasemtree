@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <title>Login</title>
+</head>
+<body class="loggedin"> <!-- Added class="loggedin" for body element -->
+    <div class="navtop">
+        <div>
+            <h1>Boo</h1> <!-- Replace with your app title -->
+            <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a> <!-- Adjust the link as needed -->
+        </div>
+    </div>
+    <h1 class="logintitle">Login Page</h1>
+    <div class="login"> <!-- Added class "login" for the login container -->
+        <form method="POST" action="/login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

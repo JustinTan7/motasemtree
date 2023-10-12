@@ -1,0 +1,4 @@
+Flask
+requests
+Flask-mySQL
+flask-MYSQLDB

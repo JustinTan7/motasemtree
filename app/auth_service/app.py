@@ -6,45 +6,32 @@ app.config['STATIC_FOLDER'] = 'static'
 app.secret_key = 'your_secret_key'
 
 users = {
-    "SigmaMale": "password",
-    "BetaMale": "secret"
+    "Borat": "password",
+    "Bilo": "secret"
 }
 
-@app.route('/app/auth', methods=['GET','POST'])
-def auth():
-    if request.method == 'POST':
-        if request.is_json:
-            data = request.get_json()
-            username = request.form['username']
-            password = request.form['password']
-        else:
-            username = request.form['username']
-            password = request.form['password']
 
-        # Check if the entered username exists in the dictionary
+@app.route('/login', methods=['POST'])
+def auth():
+    if request.is_json:
+        data = request.json  # Access JSON data
+        username = data.get('username')
+        password = data.get('password')
+
         if username in users:
             if users[username] == password:
                 response = {'message': 'Login successful!'}
                 session['username'] = username
-                return redirect('/app/home')
+                return jsonify(response), 200
             else:
                 response = {'message': 'Login failed.'}
                 return jsonify(response), 401
         else:
             response = {'message': 'Username not found'}
             return jsonify(response), 404
-    
-    elif request.method == 'GET':
-        return render_template('index.html')
 
     return "This route is intended for POST requests only.", 400
 
-@app.route('/app/home', methods=['GET', 'POST'])
-def home():
-    if 'username' in session:  # Check if 'username' is in the session
-        return render_template('dashboard.html', username=session['username'])
-    else:
-        return redirect('/app/home')  # Redirect to login if 'username' is not in the session
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002)
+    app.run(debug=True, host='0.0.0.0', port=5002)

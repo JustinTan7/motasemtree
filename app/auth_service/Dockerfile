@@ -4,14 +4,15 @@ FROM python:3.8
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy only the auth_service.py file from the 'app' directory into the container at /app
+# Copy the 'app' directory into the container at /app
 COPY . /app
 
 # Install Flask and any other needed packages
-RUN pip install Flask
+# RUN apt-get install -y pkg-config
+RUN pip install -r requirements.txt
 
 # Make port 5002 available to the world outside this container
 EXPOSE 5002
 
 # Run the Flask app when the container launches
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5002"]
