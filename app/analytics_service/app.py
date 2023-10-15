@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 import statistics
 import mysql.connector
 from pymongo import MongoClient
-import logging
 
 app = Flask(__name__)
 
@@ -59,8 +58,7 @@ def get_grade_analytics():
 
     except Exception as e:
         return str(e), 500  # Handle any exceptions and return an error response
-    
-logging.basicConfig(level=logging.DEBUG)
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5003)

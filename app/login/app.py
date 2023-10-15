@@ -69,17 +69,10 @@ def input_grades():
 
     return render_template('input_grades.html')
 
-@app.route('/input_grades/analytics', methods=['GET'])
-def get_grade_analytics():
-    # Make a request to the analytics service
-    response = requests.get(ANALYTICS_URL)
-
-    if response.status_code == 200:
-        analytics_data = response.json()
-        return render_template('statistics.html', analytics=analytics_data)
-    else:
-        return "Error fetching analytics data", 500
-
+@app.route('/statistics', methods=['GET'])
+def statistics():
+    return redirect('http://localhost:5004/statistics')
+    
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5001)
+        app.run(debug=True, host='0.0.0.0', port=5001)
 
