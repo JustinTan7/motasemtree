@@ -29,6 +29,16 @@ services:
     networks:
       - dumbassnetwork
 
+  show_results:
+    build: ./show_results
+    depends_on:
+      - mysql
+      - mongodb
+    ports:
+      - "5004:5004"
+    networks:
+      - dumbassnetwork
+
   mysql:
     image: mysql:latest
     environment:

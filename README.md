@@ -23,3 +23,5 @@ If you are running into this error with the port 3306 not being available for th
 ![MySQL Port Error](images/mysql_port_error.jpg)
 
 Ensure that no other docker containers are using port 3306 and that any local installation of MySQL or MariaDB is not running on your machine.
+
+For some reason the analytics service container will exit upon creation, so you'll have to start it manually and it will run properly.
