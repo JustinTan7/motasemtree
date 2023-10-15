@@ -17,3 +17,9 @@ To easily remove everything besides the images, run:
 ```
 docker compose down -v
 ```
+
+If you are running into this error with the port 3306 not being available for the MySQL container:
+
+![MySQL Port Error](./images/mysql_port_error.jpg)
+
+Ensure that no other docker containers are using port 3306 and that any local installation of MySQL or MariaDB is not running on your machine.
