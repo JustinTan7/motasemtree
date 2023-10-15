@@ -10,7 +10,6 @@ services:
     networks:
       - dumbassnetwork
 
-
   login:
     build: ./login
     depends_on:
@@ -19,7 +18,16 @@ services:
       - "5001:5001"
     networks:
       - dumbassnetwork
-  
+
+  analytics:
+    build: ./analytics_service
+    depends_on:
+      - mysql
+      - mongodb
+    ports:
+      - "5003:5003"
+    networks:
+      - dumbassnetwork
 
   mysql:
     image: mysql:latest
@@ -34,6 +42,18 @@ services:
       - dumbassnetwork
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rootadmin
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - "27017:27017"
+    networks:
+      - dumbassnetwork
+    volumes:
+      - ./mongodb:/docker-entrypoint-initdb.d
 
 networks:
   dumbassnetwork:

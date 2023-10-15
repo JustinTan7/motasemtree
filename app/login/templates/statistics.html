@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistics</title>
+</head>
+<body>
+    <h1>Statistics</h1>
+    <p>Lowest Grade: <span id="lowestGrade"></span></p>
+    <p>Highest Grade: <span id="highestGrade"></span></p>
+    <p>Average Grade: <span id="averageGrade"></span></p>
+
+    <script>
+        // JavaScript code to load statistics from the analytics_service
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('/input_grades/analytics') // Make an HTTP GET request to the analytics_service
+                .then(response => response.json())
+                .then(data => {
+                    // Update the elements with the actual data
+                    document.getElementById("lowestGrade").textContent = data["Lowest Grade"];
+                    document.getElementById("highestGrade").textContent = data["Highest Grade"];
+                    document.getElementById("averageGrade").textContent = data["Average Grade"];
+                })
+                .catch(error => {
+                    console.error('Error fetching statistics:', error);
+                    // Handle the error, e.g., display an error message
+                });
+        });
+    </script>
+</body>
+</html>

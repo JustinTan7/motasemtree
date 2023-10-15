@@ -7,6 +7,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 AUTH_SERVICE_URL = 'http://auth_service:5002/login'
+ANALYTICS_URL = 'http://analytics_service:5003/input_grades/analytics'
 
 app.config['MYSQL_HOST'] = 'mysql'
 app.config['MYSQL_USER'] = 'user'
@@ -68,5 +69,17 @@ def input_grades():
 
     return render_template('input_grades.html')
 
+@app.route('/input_grades/analytics', methods=['GET'])
+def get_grade_analytics():
+    # Make a request to the analytics service
+    response = requests.get(ANALYTICS_URL)
+
+    if response.status_code == 200:
+        analytics_data = response.json()
+        return render_template('statistics.html', analytics=analytics_data)
+    else:
+        return "Error fetching analytics data", 500
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5001)
+
