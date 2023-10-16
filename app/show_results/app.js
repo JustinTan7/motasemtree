@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient
-const url = 'mongodb://rootadmin:rootpassword@mongo_service:27017/'
-const dbName = 'grades_analytics'
-
+const MongoClient = require('mongodb').MongoClient;
+// const url = 'mongodb://rootadmin:rootpassword@mongo_service:27017/';
 const MONGO_URI = "mongodb://rootadmin:rootpassword@mongo_service:27017/";
 const MONGO_DB_NAME = "analytics_results";
 const MONGO_COLLECTION_NAME = "grades_analytics";
@@ -34,5 +32,5 @@ app.get('/statistics', async (req, res) => {
 });
 
 app.listen(5004, () => {
-  console.log('Express app is running on http://localhost:5004');
+  console.log('Express app is running on http://localhost:5004/statistics');
 });
