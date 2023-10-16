@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 AUTH_SERVICE_URL = 'http://auth_service:5002/login'
-ANALYTICS_URL = 'http://analytics_service:5003/input_grades/analytics'
+ANALYTICS_URL = 'http://analytics_service:5003/analytics'
 
 app.config['MYSQL_HOST'] = 'mysql'
 app.config['MYSQL_USER'] = 'user'
