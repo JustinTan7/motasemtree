@@ -12,7 +12,7 @@ MYSQL_PASSWORD = "password"
 MYSQL_DB = "students_data"
 
 # MongoDB configuration
-MONGO_URI = "mongodb://rootadmin:rootpassword@mongo_service:27017/"
+MONGO_URI = "mongodb://rootadmin:rootpassword@app-mongodb-1:27017/"
 MONGO_DB_NAME = "analytics_results"
 MONGO_COLLECTION_NAME = "grades_analytics"
 
@@ -28,7 +28,7 @@ mongo_client = MongoClient(MONGO_URI)
 db = mongo_client[MONGO_DB_NAME]
 collection = db[MONGO_COLLECTION_NAME]
 
-@app.route('/input_grades/analytics', methods=['GET'])
+@app.route('/analytics', methods=['GET'])
 def get_grade_analytics():
     try:
         # Get the data from MongoDB

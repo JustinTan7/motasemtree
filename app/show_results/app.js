@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 // const url = 'mongodb://rootadmin:rootpassword@mongo_service:27017/';
-const MONGO_URI = "mongodb://rootadmin:rootpassword@mongo_service:27017/";
+const MONGO_URI = "mongodb://rootadmin:rootpassword@app-mongodb-1:27017/";
 const MONGO_DB_NAME = "analytics_results";
 const MONGO_COLLECTION_NAME = "grades_analytics";
 
