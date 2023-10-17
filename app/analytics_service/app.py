@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 import statistics
 import mysql.connector
 from pymongo import MongoClient
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -39,8 +40,11 @@ def update_statistics():
     high_grade = float(max(grades))
     avg_grade = float(statistics.mean(grades))
 
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
     # Store data in MongoDB
     analytics = {
+        "timestamp": timestamp,
         "lowest_grade": low_grade,
         "highest_grade": high_grade,
         "average_grade": avg_grade
