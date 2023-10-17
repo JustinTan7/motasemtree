@@ -14,7 +14,7 @@ app.config['MYSQL_USER'] = 'user'
 app.config['MYSQL_PASSWORD'] = 'password'
 app.config['MYSQL_DB'] = 'students_data'
 
-# Initialize MySQL
+
 mysql = MySQL(app)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -36,7 +36,7 @@ def login():
         else:
             return render_template('login.html', error='Authentication failed. Please try again.')
     else:
-        return render_template('login.html', error='')  # For the GET request, you can render the login page with no error message
+        return render_template('login.html', error='')  
 
 
 @app.route('/dashboard')
