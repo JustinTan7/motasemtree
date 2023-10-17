@@ -47,18 +47,24 @@ def get_grade_analytics():
 
             # Store data in MongoDB
             analytics = {
-                "Lowest Grade": low_grade,
-                "Highest Grade": high_grade,
-                "Average Grade": avg_grade
+                "lowest_grade": low_grade,
+                "highest_grade": high_grade,
+                "average_grade": avg_grade
             }
 
             collection.insert_one(analytics)
 
-        return jsonify(analytics)
+        # Convert the MongoDB document to a regular Python dictionary
+        serialized_data = {}
+        for key, value in analytics.items():
+            serialized_data[key] = value
+
+        return jsonify(serialized_data)
 
     except Exception as e:
         return str(e), 500  # Handle any exceptions and return an error response
 
 
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5003)
+    app.run(debug=True, port=5003, host='0.0.0.0')

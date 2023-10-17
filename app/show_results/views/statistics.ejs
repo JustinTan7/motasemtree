@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Statistics Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
 </head>
 <body>
-  <h1>Statistics</h1>
-  <ul>
-    <li>Lowest Grade: <%= analytics["Lowest Grade"] %></li>
-    <li>Highest Grade: <%= analytics["Highest Grade"] %></li>
-    <li>Average Grade: <%= analytics["Average Grade"] %></li>
-  </ul>
+    <h2>Welcome to the Statistics Page</h2>
+    <p>Data from MongoDB will be shown below:</p>
+    <ul>
+        <li>Lowest Grade: <%= data["lowest_grade"] %></li>
+        <li>Highest Grade: <%= data["highest_grade"] %></li>
+        <li>Average Grade: <%= data["average_grade"] %></li>
+      </ul>
 </body>
 </html>

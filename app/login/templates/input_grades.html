@@ -101,7 +101,6 @@
 <body>
     <div class="login">
         <h1>Enter Student Data</h1>
-        <!-- Add a message container -->
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <div class="messages">
@@ -120,8 +119,8 @@
             <label for="student_id">Student ID:</label>
             <input type="text" id="student_id" name="student_id" required><br><br>
     
-            <label for="course_code">Course Code:</label>
-            <input type="text" id="course_code" name="course_code" required><br><br>
+            <label for="course">Course:</label>
+            <input type="text" id="course_code" name="course" required><br><br>
     
             <label for="grade">Grade:</label>
             <textarea id="grade" name="grade" required></textarea><br><br>

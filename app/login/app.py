@@ -51,13 +51,13 @@ def input_grades():
     if request.method == 'POST':
         student_name = request.form['student_name']
         student_id = request.form['student_id']
-        course_code = request.form['course_code']
+        course = request.form['course']
         grade = request.form['grade']
 
         cursor = mysql.connection.cursor()
         try:
-            cursor.execute("INSERT INTO students_grades (student_name, student_id, course_code, grade) VALUES (%s, %s, %s, %s)",
-                           (student_name, student_id, course_code, grade))
+            cursor.execute("INSERT INTO students_grades (student_name, student_id, course, grade) VALUES (%s, %s, %s, %s)",
+                           (student_name, student_id, course, grade))
             mysql.connection.commit()
             flash('Data added successfully', 'success')
         except Exception as e:
@@ -71,6 +71,7 @@ def input_grades():
 
 @app.route('/statistics', methods=['GET'])
 def statistics():
+
     return redirect('http://localhost:5004/statistics')
     
 if __name__ == '__main__':
