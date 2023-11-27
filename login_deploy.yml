@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-service
+  labels:
+    app: login
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: login
+  template:
+    metadata:
+      labels:
+        app: login
+    spec:
+      containers:
+      - name: login
+        image: churu/  # Replace with your container image details
+        ports:
+        - containerPort: 80  # Adjust the port based on your application configuration
+        env:
+        - name: DB_HOST
+          value: your-db-host  # Replace with your database host
+        - name: DB_PORT
+          value: "5432"  # Replace with your database port
+        - name: DB_USER
+          value: your-db-username  # Replace with your database username
+        - name: DB_PASSWORD
+          value: your-db-password  # Replace with your database password
+        # Add other environment variables as needed for your login service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: login-service
+spec:
+  selector:
+    app: login
+  ports:
+    - protocol: TCP
+      port: 80  # The port your service exposes
+      targetPort: 80  # The port your containers are listening on
+  type: LoadBalancer  # Exposes the service to the internet (adjust based on your network setup)
+

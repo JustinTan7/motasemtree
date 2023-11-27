@@ -2,7 +2,7 @@ version: '3'
 
 services:
   auth_service:
-    build: ./auth_service
+    image: churu/acit-3495-project2-auth  
     depends_on:
       - mysql
     ports:
@@ -11,7 +11,7 @@ services:
       - dumbassnetwork
 
   login:
-    build: ./login
+    image: churu/acit-3495-project2-login  
     depends_on:
       - mysql
     ports:
@@ -20,7 +20,7 @@ services:
       - dumbassnetwork
 
   analytics:
-    build: ./analytics_service
+    image: churu/acit-3495-project2-analytics 
     depends_on:
       - mysql
       - mongodb
@@ -30,7 +30,7 @@ services:
       - dumbassnetwork
 
   show_results:
-    build: ./show_results
+    image: churu/acit-3495-project2-show-results
     depends_on:
       - mysql
       - mongodb
