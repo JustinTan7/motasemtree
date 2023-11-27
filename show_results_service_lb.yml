@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: show-results-service-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5004
+    targetPort: 5004
+  selector:
+    app: show-results-service

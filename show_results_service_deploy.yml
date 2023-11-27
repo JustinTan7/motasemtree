@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: show-results-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: show-results-service
+  template:
+    metadata:
+      labels:
+        app: show-results-service
+    spec:
+      containers:
+      - name: login-service
+        image: churu/acit-3495-project2-show-results
+        ports:
+        - containerPort: 5004
