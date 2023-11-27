@@ -29,11 +29,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb
+  name: mysql
 spec:
+  type: NodePort
   selector:
-    app: mongodb
+    app: mysql
   ports:
-    - protocol: TCP
-      port: 27017
-      targetPort: 27017
+  - port: 27017
+    targetPort: 27017
+    nodePort: 30007
+
