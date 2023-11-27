@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: login-service
+  template:
+    metadata:
+      labels:
+        app: login-service
+    spec:
+      containers:
+      - name: login-service
+        image: churu/acit-3495-project2-login
+        ports:
+        - containerPort: 5001

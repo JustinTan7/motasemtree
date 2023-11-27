@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: auth-service-lb
+  name: login-service-lb
 spec:
   type: LoadBalancer
   ports:
-  - port: 5002
-    targetPort: 5002
+  - port: 5001
+    targetPort: 5001
   selector:
-    app: auth-service
+    app: login-service
