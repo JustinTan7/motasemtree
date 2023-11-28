@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: analytics-service
-        image: churu/acit-3495-project2-analytics
+        image: churu/acit-3495-project2-analytics:latest
         ports:
         - containerPort: 5003
 ---

@@ -12,9 +12,10 @@ spec:
       labels:
         app: mongodb
     spec:
+      hostname: app-mongodb-1
       containers:
       - name: mongodb
-        image: mongo:latest
+        image: churu/mongodb:latest
         env:
           - name: MONGO_INITDB_ROOT_USERNAME
             value: rootadmin
@@ -22,9 +23,8 @@ spec:
             value: rootpassword
         ports:
         - containerPort: 27017
-        volumeMounts:
-        - name: mongodb-pvc
 
+---
 apiVersion: v1
 kind: Service
 metadata:

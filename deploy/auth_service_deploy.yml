@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: auth-service
-        image: churu/acit-3495-project2-auth
+        image: churu/acit-3495-project2-auth:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5002

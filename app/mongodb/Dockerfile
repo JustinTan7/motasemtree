@@ -5,7 +5,6 @@ FROM mongo:latest
 COPY init-mongodb.js /docker-entrypoint-initdb.d/
 
 # Set the script to execute during container startup
-CMD ["mongod", "--fork", "--logpath=/var/log/mongod.log", "--replSet=rs0"]
-
+CMD ["mongod", "--bind_ip_all"]
 # Expose the default MongoDB port
 EXPOSE 27017
