@@ -8,7 +8,7 @@ app.secret_key = 'your_secret_key'
 
 AUTH_SERVICE_URL = 'http://auth-service:5002/login'
 ANALYTICS_URL = 'http://analytics-service:5003/analytics'
-SHOW_RESULTS_URL = 'http://show-results-service:5004/statistics'
+SHOW_RESULTS_SERVICE_NAME = 'show-results-service'
 
 app.config['MYSQL_HOST'] = 'mysql'
 app.config['MYSQL_USER'] = 'user'
@@ -70,10 +70,39 @@ def input_grades():
 
     return render_template('input_grades.html')
 
+HOW_RESULTS_SERVICE_NAME = 'show-results-service'
+
+def get_show_results_url():
+    try:
+        # Read the namespace from the mounted service account token file
+        with open('/var/run/secrets/kubernetes.io/serviceaccount/namespace', 'r') as namespace_file:
+            namespace = namespace_file.read().strip()
+
+        # Use Kubernetes API to get service information
+        service_info = requests.get(
+            f'http://kubernetes.default.svc/api/v1/namespaces/{namespace}/services/{SHOW_RESULTS_SERVICE_NAME}'
+        ).json()
+
+        # Get the external IP address assigned to the service
+        external_ip = service_info['status']['loadBalancer']['ingress'][0]['ip']
+        
+        # Construct the URL
+        show_results_url = f'http://{external_ip}:5004/statistics'
+
+        return show_results_url
+
+    except Exception as e:
+        print(f'Error getting show-results-service URL: {e}')
+        return None
+
 @app.route('/statistics', methods=['GET'])
 def statistics():
+    show_results_url = get_show_results_url()
 
-    return redirect(f'{SHOW_RESULTS_URL}')
+    if show_results_url:
+        return redirect(show_results_url)
+    else:
+        return render_template('error.html', error='Error getting show-results-service URL')
     
 if __name__ == '__main__':
         app.run(debug=True, host='0.0.0.0', port=5001)
