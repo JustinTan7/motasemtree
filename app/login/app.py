@@ -8,6 +8,7 @@ app.secret_key = 'your_secret_key'
 
 AUTH_SERVICE_URL = 'http://auth-service:5002/login'
 ANALYTICS_URL = 'http://analytics-service:5003/analytics'
+SHOW_RESULTS_URL = 'http://show-results-service:5004/statistics'
 
 app.config['MYSQL_HOST'] = 'mysql'
 app.config['MYSQL_USER'] = 'user'
@@ -72,7 +73,7 @@ def input_grades():
 @app.route('/statistics', methods=['GET'])
 def statistics():
 
-    return redirect('http://localhost:5004/statistics')
+    return redirect(f'{SHOW_RESULTS_URL}')
     
 if __name__ == '__main__':
         app.run(debug=True, host='0.0.0.0', port=5001)
