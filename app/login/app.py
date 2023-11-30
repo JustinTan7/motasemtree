@@ -70,8 +70,6 @@ def input_grades():
 
     return render_template('input_grades.html')
 
-HOW_RESULTS_SERVICE_NAME = 'show-results-service'
-
 def get_show_results_url():
     try:
         # Read the namespace from the mounted service account token file
