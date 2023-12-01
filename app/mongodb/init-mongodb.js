@@ -9,10 +9,9 @@ if (!db.getCollectionNames().includes("grades_analytics")) {
     // Create the grades analytics collection
     db.createCollection("grades_analytics");
     db.grades_analytics.insertOne({
-        "timestamp": timestamp,
-        "lowest_grade": low_grade,
-        "highest_grade": high_grade,
-        "average_grade": avg_grade
+        "lowest_grade": 0,
+        "highest_grade": 100,
+        "average_grade": 50
     
     });
     
