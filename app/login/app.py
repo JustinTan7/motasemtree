@@ -66,6 +66,8 @@ def input_grades():
         finally:
             cursor.close()
 
+        response = requests.get(ANALYTICS_URL)
+
         return redirect('/input_grades')
 
     return render_template('input_grades.html')
