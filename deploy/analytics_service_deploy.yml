@@ -19,11 +19,11 @@ spec:
         - containerPort: 5003
         resources:
           requests:
-            memory: "2Gi"
-            cpu: "2000m"
+            memory: "1Gi"
+            cpu: "500m"
           limits:
-            memory: "4Gi"
-            cpu: "4000m"
+            memory: "2Gi"
+            cpu: "1000m"
 ---
 apiVersion: v1
 kind: Service
