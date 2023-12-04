@@ -9,6 +9,8 @@ const MONGO_COLLECTION_NAME = "grades_analytics";
 app.set('view engine', 'ejs');
 
 app.get('/statistics', async (req, res) => {
+  let mongoClient = null;
+  
   try {
 
     // Connect to MongoDB
@@ -26,12 +28,14 @@ app.get('/statistics', async (req, res) => {
 
     // Render the statistics page with the retrieved data
     res.render('statistics', { data: jsonData });
-
-    // Close the MongoDB connection
-    mongoClient.close();
   } catch (error) {
     console.error(error);
     res.status(500).send('Error fetching statistics data');
+  } finally {
+    if (mongoClient) {
+      //close the MongoDB connection
+      mongoClient.close(); 
+    }
   }
 });
 
